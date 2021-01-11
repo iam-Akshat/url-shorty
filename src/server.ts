@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 
 dotenv.config({path:'E:/url-short/.env'})
 const app = express()
+app.set('view engine', 'ejs');
+app.use(express.static('./public'))
 const port  = process.env.PORT || 3000
 app.use('/',redirects)
 app.listen(port, async () => {
