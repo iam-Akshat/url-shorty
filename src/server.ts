@@ -7,7 +7,7 @@ import { join } from "path";
 
 const port  = process.env.PORT || 3000
 
-dotenv.config({path:'E:/url-short/.env'})
+dotenv.config({path:join(__dirname, "../", ".env")})
 
 const app = express()
 
