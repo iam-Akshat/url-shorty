@@ -3,6 +3,7 @@ const URLRegexPattern = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA
 const URLregex = new RegExp(URLRegexPattern)
 
 const isValidUrl = (url:string) =>{
+    if (typeof(url) != "string") return false;
     if (url.match(URLregex)) {
         return true
     }
