@@ -13,7 +13,8 @@ interface ILink extends Document {
     full_url: string,
     short_url: string,
     tag: string,
-    clicks: number
+    clicks: number,
+    batch_id: string
 }
 const Link: Model<ILink> = model('Link', LinkSchema)
 
