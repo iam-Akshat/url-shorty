@@ -5,7 +5,8 @@ const LinkSchema: Schema = new Schema({
     full_url: { type: String, required: true },
     short_url: { type: String, default: nanoid(6) },
     tag: { type: String, null: true },
-    clicks: { type: Number, default: 0 }
+    clicks: { type: Number, default: 0 },
+    batch_id: {  type:String }
 })
 
 interface ILink extends Document {
