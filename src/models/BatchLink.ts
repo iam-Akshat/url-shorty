@@ -1,4 +1,4 @@
-import { model, Schema, Model, Document, ObjectId } from 'mongoose';
+import { model, Schema, Model, Document } from 'mongoose';
 import { ILink } from "./Link";
 import { nanoid } from 'nanoid';
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { isValidUrl } from "../helpers/ValidateUrl";
-import { ILink, Link } from "../models/Link";
+import { createLinkHelper } from "../models/Link";
 
 const createURL = Router();
 
@@ -21,16 +21,5 @@ createURL.post('/', async (req, res) => {
     return
 })
 
-const createLinkHelper = async (full_url: string, tag?: string, batch_id?: string): Promise<ILink> => {
 
-    const newShortUrl: ILink = await Link.create({ full_url: full_url })
-
-    if (tag) {
-        newShortUrl.tag = tag
-    } else if (batch_id) {
-        newShortUrl.batch_id = batch_id
-    }
-
-    return await newShortUrl.save()
-}
-export { createURL, createLinkHelper }
+export { createURL }

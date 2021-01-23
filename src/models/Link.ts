@@ -6,7 +6,7 @@ const LinkSchema: Schema = new Schema({
     short_url: { type: String, default: nanoid(6) },
     tag: { type: String, null: true },
     clicks: { type: Number, default: 0 },
-    batch_id: {  type:String }
+    batch_id: { type: String }
 })
 
 interface ILink extends Document {
@@ -18,4 +18,17 @@ interface ILink extends Document {
 }
 const Link: Model<ILink> = model('Link', LinkSchema)
 
-export { Link, ILink }
+const createLinkHelper = async (full_url: string, tag?: string, batch_id?: string): Promise<ILink> => {
+
+    const newShortUrl: ILink = await Link.create({ full_url: full_url })
+
+    if (tag) {
+        newShortUrl.tag = tag
+    } else if (batch_id) {
+        newShortUrl.batch_id = batch_id
+    }
+
+    return await newShortUrl.save()
+}
+
+export { Link, ILink, createLinkHelper }
