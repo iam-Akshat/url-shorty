@@ -1,4 +1,4 @@
-import { Response, Router } from "express";
+import { Router } from "express";
 import { isValidUrl } from "../helpers/ValidateUrl";
 import { ILink, Link } from "../models/Link";
 
@@ -11,7 +11,7 @@ createURL.post('/', async (req, res) => {
         return res.status(400).json({ error: "Not a proper URl" })
     }
     try {
-        const newShortUrl = await createLinkHelper(full_url, res)
+        const newShortUrl = await createLinkHelper(full_url)
         res.status(200).json({ short_url: newShortUrl.short_url })
     } catch (error) {
         console.error(error)
