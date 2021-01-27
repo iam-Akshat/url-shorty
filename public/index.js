@@ -20,11 +20,33 @@ const createTag = () => {
         f_tags.push(text)
         tags.value = ""
         holder.innerHTML+=tagBuilder(text)
+    }else{
+        tags.disabled = true
     }
 }
 
-batch.addEventListener("submit",(e)=>{
-    tags.value = f_tags.join(",")
+const commonFetch = async (url,body,isJSON=true) => {
+    const res = await fetch(url,{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/x-www-form-urlencoded'    
+        },
+        body:body
+    })
+    if(isJSON){
+        return await res.json()
+    }else{
+        return res
+    }
+}
+batch.addEventListener("submit",async (e)=>{
+    e.preventDefault()
+    const ff = new FormData(form)
+    const tags_str = f_tags.join(",")
+    ff.append('tags',tags_str)
+    const form_encoded = new URLSearchParams(ff)
+
+    const res = await commonFetch('/batch',form_encoded,false)
+    console.log(res);
     
-    console.log(e);
 })
