@@ -24,7 +24,8 @@ const createLinkHelper = async (full_url: string, tag?: string, batch_id?: strin
 
     if (tag) {
         newShortUrl.tag = tag
-    } else if (batch_id) {
+    }
+    if (batch_id) {
         newShortUrl.batch_id = batch_id
     }
 
