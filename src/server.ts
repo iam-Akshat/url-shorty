@@ -1,6 +1,7 @@
 import express from "express";
 import redirects from "./routes/Redirects";
 import { createURL } from "./routes/CreateURL";
+import { BatchCreate } from "./routes/BatchCreate";
 import { dbConnect } from "./db/connectDb";
 import dotenv from "dotenv";
 import { join } from "path";
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }))
 // Routes
 app.use('/', redirects)
 app.use('/', createURL)
+app.use('/batch',BatchCreate)
 
 app.listen(port, async () => {
   const { MONGO_URI } = process.env
