@@ -30,17 +30,27 @@
         </div>
     </nav>
     <main>
-        <h1>We shorten you urls</h1>
-        <form action="/" method="post">
+        <h1>We shorten your urls</h1>
+        <div class="link-maker-container">
+            <form action="/" method="post" id="main-form">
+                <div class="form-holder">
+                    <input type="url" required autocomplete="off" name="full_url" id="full_url"
+                        placeholder="Shorten Your link">
+                    <button type="submit" id="main-sub">Shorten</button>
+                </div>
+            </form>
+            <div class="made-links-container">
 
-            <label for="full_url">Shorten your url</label>
-            <input type="url" name="full_url" id="full_url">
-            <button type="submit">submit</button>
-
-
-        </form>
+            </div>
+        </div>
+        <div class="report-url-holder">
+            <h3>To see report use "website/r/short_url"</h3>
+            <div class="report-urls-container"></div>
+        </div>
     </main>
-
+    <footer>
+        <h4>Thank you for using</h4>
+    </footer>
 </body>
 
 </html>

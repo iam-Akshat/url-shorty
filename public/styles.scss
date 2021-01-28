@@ -6,6 +6,9 @@
 }
 $navbar-bg:#000000;
 $navbar-txt:rgb(226, 226, 226);
+a{
+    text-decoration: none;
+}
 nav {
     position: fixed;
     top: 0;
@@ -121,5 +124,90 @@ nav {
     font-weight: 700;
 }
 main{
-   padding: 3rem 0.8rem;
+   margin: 4rem 1rem;
+}
+.form-holder{
+
+    display: flex;
+    flex-direction: column;
+    #full_url,button{
+        margin-top: 0.5rem;
+        padding: 0.66rem 0.66rem;
+        border-radius: 10px;
+        border: none;
+        &::placeholder{
+            font-size: 1rem;
+        }
+        &:focus{
+            outline: 1px groove whitesmoke;
+        }
+    }
+    button{
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        background-color: #1b3987;
+        color: #f4f4f4;
+    }
+}
+.link-maker-container{
+    // width: 100vw;
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    background-color: #021546;
+}
+.made-links-container{
+    margin-top: 1rem;
+    border-radius: 12px;
+    background-color: white;
+    .made-link{
+        display: flex;
+        flex-direction: column;
+    }
+    .short-url,.long-url{
+        padding: 0.5rem 0.5rem;
+        background-color: white;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .long-url{
+       word-wrap: break-word;
+    }
+    .short-url{
+        a{
+            color: #062880;
+            font-weight: bold;
+        }
+    }
+    .copy-btn{
+        background-color: transparent;
+        border: none;
+        color:#0034b9 ;
+        font-size: 1rem;
+        margin: 0.66rem auto;
+        width: 90%;
+        padding: 0.33rem;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        transition: background-color 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        .copied{
+            background-color: rgb(50, 112, 50);
+        }
+        &:hover{
+            background-color: rgb(173, 188, 211);
+        }
+        
+    }
+}
+.report-url-holder{
+    margin: 0 auto;
+    width: 90%  ;
+    .full-url{
+        border: 1px solid grey;
+        padding: 0.33rem 0.6rem;
+        a{
+            color: black;
+
+        }
+    }
 }
