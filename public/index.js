@@ -1,10 +1,7 @@
 /* eslint-disable no-undef */
 
 //  FOR BATCH URLS PAGE
-const f_tags=[]
-const tags = document.getElementById("tags")
-const holder = document.getElementById("tag_holder")
-const form = document.getElementById("batch")
+let f_tags, tags, holder, form 
 console.log(tags);
 const batchtags = () =>{
     tags.addEventListener("keydown", (event) => {
@@ -79,5 +76,11 @@ function navSlide() {
     });
     
 }
-
 navSlide();
+if(document.location.pathname=='/batch_urls.html'){
+f_tags = []
+tags = document.getElementById("tags")
+holder = document.getElementById("tag_holder")
+form = document.getElementById("batch")
+tags && batchtags()
+batch && batchListener()}
