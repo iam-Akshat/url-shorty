@@ -106,10 +106,11 @@ if (document.location.pathname == '/batch_urls.html') {
 }
 const addReportTag = (short) => {
     const container = document.getElementsByClassName('report-urls-container')[0]
-    container.insertAdjacentHTML('afterbegin',createReportTagHelper(short))
+    container.insertAdjacentHTML('afterbegin', createReportTagHelper(short))
 }
 const addShortLink = (short, long, index) => {
     const container = document.getElementsByClassName('made-links-container')[0]
+    long = long.substr(0, 50) + '...'
     container.insertAdjacentHTML('afterbegin', createShortLinkHelper(short, long, index))
     addBtnListeners()
 }
@@ -117,15 +118,18 @@ const createReportTagHelper = (short) => {
     return `<div class="full-url"><a href="https://${document.location.hostname}/r/${short}">${short}</a> </div>`
 }
 const createShortLinkHelper = (short, long, index) => {
-    return `<div class="made-link">
-        <div class="short-url l-${index}">
-            <a target="_blank" href="https://${document.location.hostname}/${short}">
-            https://${document.location.hostname}/${short}
-            </a>
-        </div>
+    return (
+        `<div class="made-link">
         <div class="long-url">${long}</div>
+        <div class="group-btn-url">
+            <div class="short-url l-${index}">
+                <a target="_blank" href="https://${document.location.hostname}/${short}">
+                https://${document.location.hostname}/${short}
+                </a>
+            </div>
         <button class="copy-btn" id="cpy-${index}">Copy</button>
-    </div>`
+        </div>
+    </div>`)
 }
 
 const mainForm = () => {
@@ -137,11 +141,11 @@ const mainForm = () => {
         const formData = new FormData(form)
         const formBody = new URLSearchParams(formData)
         try {
-            const res = await commonFetch('/',formBody,true)
-            addShortLink(res.short_url,...formData.values(),window.localStorage.getItem('len')||0)
+            const res = await commonFetch('/', formBody, true)
+            addShortLink(res.short_url, ...formData.values(), window.localStorage.getItem('len') || 0)
             addReportTag(res.short_url)
             console.log(res.short_url);
-            saveToLocal(res.short_url,...formData.values())
+            saveToLocal(res.short_url, ...formData.values())
             button.innerText = "Shorten"
         } catch (error) {
             button.innerText = "Error"
@@ -162,25 +166,25 @@ const localData = () => {
 }
 
 const prePopulate = (data) => {
-    for(let t=0;t<data.length;t++){
-        addShortLink(data[t][0],data[t][1],t)
+    for (let t = 0; t < data.length; t++) {
+        addShortLink(data[t][0], data[t][1], t)
         addReportTag(data[t][0])
     }
 }
 localData() && prePopulate(localData())
-const saveToLocal = (short,long) =>{
+const saveToLocal = (short, long) => {
     const totalCreated = window.localStorage.getItem('len') || 0
-    if(totalCreated > 0){
+    if (totalCreated > 0) {
         let prevCreated = window.localStorage.getItem('prevItems')
         prevCreated = JSON.parse(prevCreated)
-        prevCreated.push([short,long])
+        prevCreated.push([short, long])
         prevCreated = JSON.stringify(prevCreated)
-        window.localStorage.setItem('prevItems',prevCreated)
-    }else{
+        window.localStorage.setItem('prevItems', prevCreated)
+    } else {
         let prevCreated = []
-        prevCreated.push([short,long])
+        prevCreated.push([short, long])
         prevCreated = JSON.stringify(prevCreated)
-        window.localStorage.setItem('prevItems',prevCreated)
+        window.localStorage.setItem('prevItems', prevCreated)
     }
-    window.localStorage.setItem('len',totalCreated+1)
+    window.localStorage.setItem('len', totalCreated + 1)
 }
