@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorty</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <script src="./index.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
-
-    <title>URL SHORTY</title>
 </head>
 
 <body>
@@ -30,27 +29,22 @@
         </div>
     </nav>
     <main>
-        <h1>We shorten your urls</h1>
-        <div class="link-maker-container">
-            <form action="/" method="post" id="main-form">
-                <div class="form-holder">
-                    <input type="url" required autocomplete="off" name="full_url" id="full_url"
-                        placeholder="Shorten Your link">
-                    <button type="submit" id="main-sub">Shorten</button>
-                </div>
-            </form>
-            <div class="made-links-container">
-
-            </div>
-        </div>
-        <div class="report-url-holder">
-            <h3>To see report use "website/r/short_url"</h3>
-            <div class="report-urls-container"></div>
-        </div>
+        <form action="/batch" method="POST" id="batch">
+            <label for="batch_name">Name your Batch</label>
+            <input type="text" name="batch_name" id="batch_name" required>
+            <br>
+            <label for="batch_url">URL</label>
+            <input type="url" name="batch_url" id="batch_url" required>
+            <br>
+            <label for="tags">Tags</label>
+            <input type="text" name="tags" id="tags" required>
+            <br>
+            <div id="tag_holder" style="background-color: red;"></div>
+            <button type="submit">Create</button>
+        </form>
     </main>
-    <footer>
-        <h4>Thank you for using</h4>
-    </footer>
+
+
 </body>
 
 </html>
