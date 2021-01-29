@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { IBatchLink, BatchLink } from "../models/BatchLink";
-import { ILink, createLinkHelper, Link } from "../models/Link";
-import { isValidUrl } from "../helpers/ValidateUrl";
+import { ILink, createLinkHelper } from "../models/Link";
 import { isEmptyStrings } from "../helpers/CheckEmptyStrings";
 const BatchCreate = Router()
 
