@@ -9,6 +9,7 @@ $navbar-txt:rgb(226, 226, 226);
 a{
     text-decoration: none;
 }
+//--------------------------nav bar start
 nav {
     position: fixed;
     top: 0;
@@ -123,6 +124,7 @@ nav {
     margin-bottom: 0.1rem;
     font-weight: 700;
 }
+//  -----------------------nav bar end 
 main{
    margin: 4rem 1rem;
 }
@@ -168,9 +170,7 @@ main{
         background-color: white;
         width: 90%;
         margin: 0 auto;
-    }
-    .long-url{
-       word-wrap: break-word;
+        word-wrap: break-word;
     }
     .short-url{
         a{
@@ -178,26 +178,31 @@ main{
             font-weight: bold;
         }
     }
-    .copy-btn{
-        background-color: transparent;
-        border: none;
-        color:#0034b9 ;
-        font-size: 1rem;
-        margin: 0.66rem auto;
-        width: 90%;
-        padding: 0.33rem;
-        border-radius: 10px;
-        border: none;
-        outline: none;
-        transition: background-color 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
-        .copied{
-            background-color: rgb(50, 112, 50);
+    .group-btn-url{
+        display: flex;
+        flex-direction: column;
+        .copy-btn{
+            background-color: transparent;
+            border: none;
+            color:#0034b9 ;
+            font-size: 1rem;
+            margin: 0.66rem auto;
+            width: 90%;
+            padding: 0.33rem;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            transition: background-color 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+            .copied{
+                background-color: rgb(50, 112, 50);
+            }
+            &:hover{
+                background-color: rgb(173, 188, 211);
+            }
+            
         }
-        &:hover{
-            background-color: rgb(173, 188, 211);
-        }
-        
     }
+    
 }
 .report-url-holder{
     margin: 0 auto;
@@ -210,4 +215,46 @@ main{
 
         }
     }
+}
+
+@media screen and (min-width: 1024px){
+    .form-holder{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        #full_url{
+            flex-grow: 1;
+        }
+        #main-sub{
+            margin-left: 2rem;
+            width: 8rem;
+        }
+    }
+    .made-links-container{
+        .made-link{
+            flex-direction: row;
+            align-items: center;
+            .long-url{
+                order: -1;
+                width: 60%;
+            }
+            
+            .group-btn-url{
+                flex-direction: row;
+                align-items: center;
+                width: 40%;
+                .short-url{
+                    flex-grow: 1;
+                    word-wrap: normal;
+                    word-break: normal;
+                    width: 100%;
+                }
+                .copy-btn{
+                    width: 40%;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+    
 }
