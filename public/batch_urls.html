@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorty</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="./index.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <span>URL</span>
+            <span>SHORTY</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <main>
+        <form action="/batch" method="POST" id="batch">
+            <label for="batch_name">Name your Batch</label>
+            <input type="text" name="batch_name" id="batch_name" required>
+            <br>
+            <label for="batch_url">URL</label>
+            <input type="url" name="batch_url" id="batch_url" required>
+            <br>
+            <label for="tags">Tags</label>
+            <input type="text" name="tags" id="tags" required>
+            <br>
+            <div id="tag_holder" style="background-color: red;"></div>
+            <button type="submit">Create</button>
+        </form>
+    </main>
+
+
+</body>
+
+</html>

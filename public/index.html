@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="./index.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>URL SHORTY</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <span>URL</span>
+            <span>SHORTY</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <main>
+        <h1>We shorten your urls</h1>
+        <div class="link-maker-container">
+            <form action="/" method="post" id="main-form">
+                <div class="form-holder">
+                    <input type="url" required autocomplete="off" name="full_url" id="full_url"
+                        placeholder="Shorten Your link">
+                    <button type="submit" id="main-sub">Shorten</button>
+                </div>
+            </form>
+            <div class="made-links-container">
+
+            </div>
+        </div>
+        <div class="report-url-holder">
+            <h3>To see report use "website/r/short_url"</h3>
+            <div class="report-urls-container"></div>
+        </div>
+    </main>
+    <footer>
+        <h4>Thank you for using</h4>
+    </footer>
+</body>
+
+</html>
