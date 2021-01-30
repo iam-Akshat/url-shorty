@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta property='og:url' content='https://urlshortyyme.herokuapp.com/' />
+    <meta property='og:title' content='Analytics for your url' />
+    <meta property='og:image' content='https://urlshortyyme.herokuapp.com/og-img.jpg' />
+    <meta property='og:description' content='URL SHORTENER made with nodejs and mongodb' />
+    <meta property='og:url' content='https://urlshortyyme.herokuapp.com/' />
+    <script src="../index.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <title>URL SHORTY</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <span>URL</span>
+            <span>SHORTY</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <main>
+        <div class="made-links-container">
+            <div class="made-link">
+                <div class="long-url">
+                    <%= report.full_url %>
+                </div>
+                <div class="clicks-container">
+                    <p>Clicks</p>
+                    <p>
+                        <%= report.clicks %>
+                    </p>
+                </div>
+                <div class="group-btn-url">
+                    <div class="short-url l-0">
+                        <a target="_blank" href=<%='https://' + host + '/' + report.short_url %> >
+                            <%='https: //'+ host + '/' + report.short_url %>
+                        </a>
+                    </div>
+                    <button class="copy-btn" id="cpy-0">Copy</button>
+                </div>
+            </div>`
+        </div>
+    </main>
+
+</body>
+
+</html>
